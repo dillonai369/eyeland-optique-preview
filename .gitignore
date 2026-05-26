@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Editor cruft
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node (in case anyone adds tooling later)
+node_modules/
+
+# Local Vercel link state (lives outside but just in case)
+.vercel/
+
+# Backups / scratch
+*.bak
+*.orig
