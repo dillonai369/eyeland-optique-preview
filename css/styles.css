@@ -729,9 +729,12 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   position: absolute;
   inset: 0;
   z-index: -1;
+  /* Lighter wash — keeps the hero video visible while still letting the
+     headline + CTAs read against any frame. Stays slightly darker at the
+     bottom so the lower text content has consistent contrast. */
   background:
-    linear-gradient(180deg, rgba(20, 14, 8, 0.72) 0%, rgba(16, 12, 6, 0.84) 55%, rgba(8, 6, 4, 0.95) 100%),
-    linear-gradient(105deg, rgba(20, 48, 47, 0.30) 0%, rgba(20, 48, 47, 0.0) 60%);
+    linear-gradient(180deg, rgba(20, 14, 8, 0.42) 0%, rgba(16, 12, 6, 0.55) 55%, rgba(8, 6, 4, 0.72) 100%),
+    linear-gradient(105deg, rgba(20, 48, 47, 0.18) 0%, rgba(20, 48, 47, 0.0) 60%);
   pointer-events: none;
 }
 
