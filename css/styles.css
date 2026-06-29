@@ -1223,6 +1223,126 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 .spec-list h3 { font-family: var(--body); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.02em; }
 .spec-list p { font-size: 0.92rem; color: var(--ink-soft); margin: 0; }
 
+/* ============================================================
+   HOMEPAGE: showcase--manual variant
+   Replaces the pinned/GSAP horizontal scroll with a normal
+   internally-scrolling section that the visitor can scroll
+   past without being trapped. Same visual panels, just no pin.
+   ============================================================ */
+@media (min-width: 821px) {
+  .showcase--manual .showcase-pin {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: none;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-color: var(--gold) rgba(246, 241, 232, 0.12);
+    scrollbar-width: auto;
+  }
+  .showcase--manual .showcase-track { transform: none !important; }
+  .showcase--manual .showcase-panel { width: clamp(440px, 50vw, 760px); }
+  .showcase--manual .showcase-side  { width: clamp(380px, 38vw, 580px); }
+  .showcase--manual .showcase-counter { display: none; }
+  .showcase--manual .showcase-pin::-webkit-scrollbar { height: 18px; }
+  .showcase--manual .showcase-pin::-webkit-scrollbar-track {
+    background: rgba(246, 241, 232, 0.12);
+    border-radius: 999px;
+  }
+  .showcase--manual .showcase-pin::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 999px;
+    border: 4px solid #150b06;
+    min-width: 90px;
+  }
+  .showcase--manual .showcase-pin::-webkit-scrollbar-thumb:hover { background: #a05a3f; }
+}
+
+/* ============================================================
+   HOMEPAGE: "In the Cases" infinite brand marquee
+   Auto-scrolling horizontal strip with brand thumbnails + name.
+   Dark coffee bg matches the Curated Independents section above it.
+   ============================================================ */
+.home-brand-marquee-section {
+  background: #150b06;
+  padding: clamp(80px, 10vw, 130px) 0;
+  overflow: hidden;
+}
+.home-brand-marquee-header {
+  text-align: center;
+  margin-bottom: clamp(28px, 4vw, 50px);
+}
+.home-brand-marquee-headline {
+  color: var(--bg);
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 16px 0 0;
+}
+.home-brand-marquee-sub {
+  color: rgba(246, 241, 232, 0.65);
+  font-size: clamp(0.98rem, 1.2vw, 1.1rem);
+  line-height: 1.6;
+  margin: 18px auto 0;
+  max-width: 50ch;
+}
+.home-brand-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, black 5%, black 95%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, black 5%, black 95%, transparent 100%);
+}
+.home-brand-marquee-track {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  padding: 0 28px;
+  animation: home-bm-scroll 60s linear infinite;
+}
+.home-brand-marquee:hover .home-brand-marquee-track { animation-play-state: paused; }
+@keyframes home-bm-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.home-brand-marquee-card {
+  flex: 0 0 auto;
+  width: clamp(220px, 22vw, 320px);
+  text-decoration: none;
+  color: var(--bg);
+  display: block;
+  transition: transform var(--t-med) var(--ease);
+}
+.home-brand-marquee-card:hover { transform: translateY(-4px); color: var(--bg); }
+.home-brand-marquee-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: rgba(246, 241, 232, 0.04);
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.7);
+}
+.home-brand-marquee-name {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+  color: var(--bg);
+  text-align: center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-brand-marquee-track { animation: none; }
+}
+
+/* spec-grid-3: 3-column lens-tech callouts on desktop */
+@media (min-width: 821px) {
+  .spec-grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
 /* ---------- Brand page: cinematic full-bleed hero (main.webp behind title) ---------- */
 .brand-hero-cinematic {
   position: relative;

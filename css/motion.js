@@ -174,10 +174,11 @@
     window.gsap.registerPlugin(window.ScrollTrigger);
 
     // Pinned horizontal brand showcase (side panel is inside the track and scrolls with it)
-    var showcase = document.querySelector('.showcase');
-    var track = document.querySelector('.showcase-track');
-    var pin = document.querySelector('.showcase-pin');
-    var counter = document.querySelector('.showcase-counter .num');
+    // SKIP when .showcase--manual is present — that variant uses native horizontal scroll instead of GSAP pin
+    var showcase = document.querySelector('.showcase:not(.showcase--manual)');
+    var track = showcase ? showcase.querySelector('.showcase-track') : null;
+    var pin = showcase ? showcase.querySelector('.showcase-pin') : null;
+    var counter = showcase ? showcase.querySelector('.showcase-counter .num') : null;
     if (showcase && track && pin && window.matchMedia('(min-width: 821px)').matches) {
       var panels = track.querySelectorAll('.showcase-panel');
       // Sum width of every direct child of the track — including .showcase-side
