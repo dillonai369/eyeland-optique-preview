@@ -1223,7 +1223,55 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 .spec-list h3 { font-family: var(--body); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.02em; }
 .spec-list p { font-size: 0.92rem; color: var(--ink-soft); margin: 0; }
 
-/* ---------- Brand page: hero band, gallery, lifestyle grid ---------- */
+/* ---------- Brand page: cinematic full-bleed hero (main.webp behind title) ---------- */
+.brand-hero-cinematic {
+  position: relative;
+  min-height: clamp(440px, 64vh, 660px);
+  background-color: var(--bg-deep);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--bg);
+  display: flex;
+  align-items: flex-end;
+  isolation: isolate;
+  margin: 0;
+  padding: 0;
+}
+.brand-hero-cinematic::after {
+  /* Bottom-weighted dark wash so the title stays legible over any image */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(20, 14, 8, 0.10) 0%,
+    rgba(20, 14, 8, 0.45) 55%,
+    rgba(20, 14, 8, 0.86) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+.brand-hero-cinematic .container {
+  position: relative;
+  z-index: 1;
+  padding-top: clamp(140px, 18vh, 220px);
+  padding-bottom: clamp(48px, 6vw, 84px);
+}
+.brand-hero-cinematic .eyebrow {
+  color: var(--gold);
+}
+.brand-hero-cinematic h1 {
+  color: var(--bg);
+  font-weight: 400;
+  margin-bottom: 16px;
+  max-width: 22ch;
+}
+.brand-hero-cinematic .lead {
+  color: rgba(246, 241, 232, 0.92);
+  max-width: 52ch;
+  margin-top: 8px;
+}
+
+/* ---------- Brand page: gallery + lifestyle grid (used below the hero) ---------- */
 .brand-hero-band {
   position: relative;
   width: 100%;
