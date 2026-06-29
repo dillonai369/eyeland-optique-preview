@@ -768,7 +768,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   max-width: 22ch;
   margin-bottom: 36px;
   font-size: clamp(3.4rem, 8.6vw, 8rem);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.02;
   letter-spacing: -0.025em;
 }
