@@ -10,17 +10,17 @@
   /* Colors — Lowcountry palette */
   --bg: #f6f1e8;            /* warm sand */
   --bg-card: #fbf6ec;       /* lighter sand for raised surfaces */
-  --bg-deep: #14302f;       /* deep marsh teal — darkest surface */
-  --ink: #1a2e2d;           /* near-black with teal undertone */
-  --ink-soft: #2f4544;      /* softer teal-grey for body */
+  --bg-deep: #0d2625;       /* deep marsh teal — darkest surface */
+  --ink: #142322;           /* near-black with teal undertone */
+  --ink-soft: #263938;      /* softer teal-grey for body */
   --ink-mute: #7a8584;      /* mute teal-grey */
   --line: #d9ceba;          /* sand line */
   --line-soft: #ebe1cb;     /* lighter sand line */
   --gold: #c87454;          /* warm coral / terracotta accent (replaces gold) */
   --gold-deep: #a05a3f;     /* deeper terracotta for hover */
   --oxblood: #8a3a2d;       /* deep clay red for occasional emphasis */
-  --teal: #1f4847;          /* mid marsh teal — secondary accent */
-  --teal-deep: #14302f;     /* same as bg-deep, alias for accents */
+  --teal: #173a39;          /* mid marsh teal — secondary accent */
+  --teal-deep: #0d2625;     /* same as bg-deep, alias for accents */
   --white: #ffffff;
 
   /* Type */
@@ -482,7 +482,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   display: none;
   width: 48px;
   height: 48px;
-  background: #14302f;            /* coffee brown — visible on light header AND over dark video */
+  background: #0d2625;            /* coffee brown — visible on light header AND over dark video */
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -675,7 +675,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   background:
     radial-gradient(ellipse at 25% 30%, rgba(200, 116, 84, 0.45) 0%, transparent 55%),
     radial-gradient(ellipse at 75% 70%, rgba(200, 116, 84, 0.30) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 50%, #1f3e3d 0%, #0a201f 80%);
+    radial-gradient(ellipse at 50% 50%, #163332 0%, #061614 80%);
   background-size: 220% 220%, 200% 200%, 100% 100%;
   animation: hero-grad 22s ease-in-out infinite alternate;
 }
@@ -918,13 +918,13 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   position: relative;
 }
 .split-image[data-tone="warm"] { background-image: linear-gradient(135deg, #d6c8a8 0%, #8a7553 100%); }
-.split-image[data-tone="deep"] { background-image: linear-gradient(135deg, #4a463f 0%, #14302f 100%); }
+.split-image[data-tone="deep"] { background-image: linear-gradient(135deg, #4a463f 0%, #0d2625 100%); }
 .split-image[data-tone="gold"] { background-image: linear-gradient(135deg, #c9a35d 0%, #6e5022 100%); }
 .split-image[data-tone="rose"] { background-image: linear-gradient(135deg, #d4a8a0 0%, #6e2a2a 100%); }
 .split-image[data-tone="sage"] { background-image: linear-gradient(135deg, #b9beac 0%, #5a6356 100%); }
 .split-image[data-tone="silver"] { background-image: linear-gradient(135deg, #d4d2cd 0%, #8a8682 100%); }
 .split-image[data-tone="rust"] { background-image: linear-gradient(135deg, #c9876b 0%, #6e3e2a 100%); }
-.split-image[data-tone="ink"] { background-image: linear-gradient(135deg, #5a5e6e 0%, #14302f 100%); }
+.split-image[data-tone="ink"] { background-image: linear-gradient(135deg, #5a5e6e 0%, #0d2625 100%); }
 .split-image[data-tone="ivory"] { background-image: linear-gradient(135deg, #f0e8d4 0%, #c9b88a 100%); }
 
 @media (max-width: 820px) {
@@ -981,14 +981,14 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   margin: -24px -24px 0 -24px;
   margin: calc(clamp(24px, 3vw, 38px) * -1) calc(clamp(24px, 3vw, 38px) * -1) 0;
 }
-.card-image[data-tone="deep"]   { background-image: linear-gradient(135deg, #4a463f, #14302f); }
+.card-image[data-tone="deep"]   { background-image: linear-gradient(135deg, #4a463f, #0d2625); }
 .card-image[data-tone="gold"]   { background-image: linear-gradient(135deg, #c9a35d, #6e5022); }
 .card-image[data-tone="warm"]   { background-image: linear-gradient(135deg, #e0d3b4, #8a7553); }
 .card-image[data-tone="rose"]   { background-image: linear-gradient(135deg, #d4a8a0, #6e2a2a); }
 .card-image[data-tone="sage"]   { background-image: linear-gradient(135deg, #b9beac, #5a6356); }
 .card-image[data-tone="silver"] { background-image: linear-gradient(135deg, #d4d2cd, #8a8682); }
 .card-image[data-tone="rust"]   { background-image: linear-gradient(135deg, #c9876b, #6e3e2a); }
-.card-image[data-tone="ink"]    { background-image: linear-gradient(135deg, #5a5e6e, #14302f); }
+.card-image[data-tone="ink"]    { background-image: linear-gradient(135deg, #5a5e6e, #0d2625); }
 .card-image[data-tone="ivory"]  { background-image: linear-gradient(135deg, #f0e8d4, #c9b88a); }
 
 /* ---------- Reviews ---------- */
@@ -1152,14 +1152,14 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   background: linear-gradient(135deg, var(--line-soft), var(--line));
   position: relative;
 }
-.brand-tile-img[data-tone="deep"] { background: linear-gradient(135deg, #4a463f, #14302f); }
+.brand-tile-img[data-tone="deep"] { background: linear-gradient(135deg, #4a463f, #0d2625); }
 .brand-tile-img[data-tone="gold"] { background: linear-gradient(135deg, #c9a35d, #6e5022); }
 .brand-tile-img[data-tone="warm"] { background: linear-gradient(135deg, #e0d3b4, #8a7553); }
 .brand-tile-img[data-tone="rose"] { background: linear-gradient(135deg, #d4a8a0, #6e2a2a); }
 .brand-tile-img[data-tone="sage"] { background: linear-gradient(135deg, #b9beac, #5a6356); }
 .brand-tile-img[data-tone="silver"] { background: linear-gradient(135deg, #d4d2cd, #8a8682); }
 .brand-tile-img[data-tone="rust"] { background: linear-gradient(135deg, #c9876b, #6e3e2a); }
-.brand-tile-img[data-tone="ink"] { background: linear-gradient(135deg, #5a5e6e, #14302f); }
+.brand-tile-img[data-tone="ink"] { background: linear-gradient(135deg, #5a5e6e, #0d2625); }
 .brand-tile-img[data-tone="ivory"] { background: linear-gradient(135deg, #f0e8d4, #c9b88a); }
 .brand-tile-body {
   padding: 22px 24px;
@@ -2118,10 +2118,10 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   aspect-ratio: 16 / 9;
   border-radius: 22px;
   overflow: hidden;
-  background: linear-gradient(135deg, #1f3e3d 0%, #14302f 100%);
+  background: linear-gradient(135deg, #163332 0%, #0d2625 100%);
   box-shadow: 0 24px 60px -16px rgba(10, 26, 25,0.32);
 }
-.video-frame[data-tone="deep"]   { background: linear-gradient(135deg, #4a463f, #14302f); }
+.video-frame[data-tone="deep"]   { background: linear-gradient(135deg, #4a463f, #0d2625); }
 .video-frame[data-tone="gold"]   { background: linear-gradient(135deg, #c9a35d, #6e5022); }
 .video-frame[data-tone="warm"]   { background: linear-gradient(135deg, #d6c8a8, #6e5a3e); }
 .video-frame[data-tone="rose"]   { background: linear-gradient(135deg, #c89992, #5a2a2a); }
@@ -2410,7 +2410,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   margin-bottom: 6px;
   color: var(--bg);
 }
-.order-card-icon[data-tone="deep"]  { background: linear-gradient(135deg, #4a463f, #14302f); }
+.order-card-icon[data-tone="deep"]  { background: linear-gradient(135deg, #4a463f, #0d2625); }
 .order-card-icon[data-tone="warm"]  { background: linear-gradient(135deg, #d6c8a8, #8a7553); color: #2a1f10; }
 .order-card-icon[data-tone="sage"]  { background: linear-gradient(135deg, #98a18a, #3e4a3a); }
 .order-card-icon[data-tone="rose"]  { background: linear-gradient(135deg, #d4a8a0, #6e2a2a); }
