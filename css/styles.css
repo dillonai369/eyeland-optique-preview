@@ -259,7 +259,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 }
 .brand img {
   display: block;
-  height: clamp(54px, 5.4vw, 78px);
+  height: clamp(46px, 4.6vw, 66px);
   width: auto;
   max-width: 320px;
   object-fit: contain;
