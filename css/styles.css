@@ -1223,6 +1223,63 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 .spec-list h3 { font-family: var(--body); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.02em; }
 .spec-list p { font-size: 0.92rem; color: var(--ink-soft); margin: 0; }
 
+/* ---------- Brand page: hero band, gallery, lifestyle grid ---------- */
+.brand-hero-band {
+  position: relative;
+  width: 100%;
+  height: clamp(440px, 64vh, 680px);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.brand-hero-band::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 14, 8, 0) 0%, rgba(20, 14, 8, 0.35) 100%);
+  pointer-events: none;
+}
+
+.brand-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.brand-gallery-item {
+  aspect-ratio: 1 / 1;
+  background-color: var(--bg-card);
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  transition: transform var(--t-med) var(--ease);
+}
+.brand-gallery-item:hover { transform: translateY(-3px); }
+
+.lifestyle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.lifestyle-item {
+  aspect-ratio: 4 / 5;
+  background-color: var(--bg-card);
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+.brand-split-image {
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 22px;
+}
+
+@media (max-width: 720px) {
+  .brand-gallery     { grid-template-columns: repeat(2, 1fr); }
+  .lifestyle-grid    { grid-template-columns: 1fr; }
+  .brand-hero-band   { height: clamp(320px, 50vh, 420px); }
+}
+
 /* ---------- Forms (contact + schedule) ---------- */
 .contact-form {
   display: flex;
