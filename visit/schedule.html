@@ -220,16 +220,30 @@
   <div class="container">
     <span class="eyebrow reveal">Book online or call</span>
     <h1 class="reveal">Schedule your visit.</h1>
-    <p class="lead reveal">Pick an appointment type, leave us your details, and we'll confirm within one business day. Or call the shop directly at 843 681 2020 — we usually have something open within the week.</p>
+    <p class="lead reveal">Book directly through our online scheduler, or leave us your details and we'll confirm within one business day. Or call the shop at 843 681 2020 — we usually have something open within the week.</p>
   </div>
 </section>
+<section style="padding-bottom: 0;">
+  <div class="container">
+    <div class="reveal" style="background: var(--bg-card); border: 1px solid var(--line); border-radius: 20px; padding: clamp(32px, 5vw, 56px); text-align: center;">
+      <span class="eyebrow" style="display: block; margin-bottom: 10px;">Fastest way to book</span>
+      <h2 style="margin-bottom: 14px;">Book online, right now.</h2>
+      <p class="lead" style="max-width: 560px; margin: 0 auto 32px;">Our online scheduler shows real availability and confirms your appointment request directly with the shop.</p>
+      <a class="btn btn-primary magnetic" href="https://web.opticalpos.com/site/!appt_req?sid=7B9FDCF89E6AD53527596526B67E6D4F" target="_blank" rel="noopener">Book an Appointment Online</a>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="container">
     <div class="grid-2">
       <div>
-        <span class="eyebrow reveal">Appointment Request</span>
+        <span class="eyebrow reveal">Prefer to send a request?</span>
         <h2 class="reveal" style="margin-bottom: 30px;">Tell us what you'd like to book.</h2>
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form reveal">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form reveal">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="New appointment request — EyelandOptique.com">
+          <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
           <label>
             <span>Your name</span>
             <input type="text" name="name" required>
@@ -289,7 +303,7 @@
 
         <div class="reveal" style="background: var(--bg-card); border: 1px solid var(--line); border-radius: 18px; padding: 28px; margin-top: 24px;">
           <div class="eyebrow" style="margin-bottom: 8px;">Insurance accepted</div>
-          <p style="margin: 0; color: var(--ink-soft);">VSP, EyeMed, BCBS, Medicare, and most major plans. We'll verify your benefits before your appointment so there are no surprises.</p>
+          <p style="margin: 0; color: var(--ink-soft);">VSP, EyeMed, Aetna, BCBS, Humana, Cigna, MetLife, Medicare, and most major plans. Out of network? We do all the paperwork for you.</p>
         </div>
       </div>
     </div>
