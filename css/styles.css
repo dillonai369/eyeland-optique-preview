@@ -2110,8 +2110,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 }
 
 /* ---------- Olive-gold frame around team photos (matches original asset border) ---------- */
-.card-image.card-image-photo,
-.split-image[style*="url"] {
+.card-image.card-image-photo {
   border: clamp(7px, 0.8vw, 12px) solid #8a7553;
   box-sizing: border-box;
 }
@@ -2512,4 +2511,97 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
     border-left: 0;
     border-right: 0;
   }
+}
+
+/* ================================================================
+   UI POLISH PASS — subtle motion & hover life (2026-07-08)
+   ================================================================ */
+
+/* Editorial split images: clean photo, soft depth, gentle grow on hover */
+.split-image[style*="url"],
+.brand-split-image {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 24px 60px -20px rgba(7, 23, 22, 0.35);
+  transition: transform 500ms var(--ease), box-shadow 500ms var(--ease);
+  will-change: transform;
+}
+.split-image[style*="url"]:hover,
+.brand-split-image:hover {
+  transform: scale(1.025);
+  box-shadow: 0 34px 80px -22px rgba(7, 23, 22, 0.45);
+}
+
+/* Buttons: lift on hover, settle on press */
+.btn {
+  transition: background-color 200ms var(--ease), color 200ms var(--ease),
+              border-color 200ms var(--ease), transform 240ms var(--ease),
+              box-shadow 240ms var(--ease);
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -12px rgba(7, 23, 22, 0.35);
+}
+.btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 6px 14px -8px rgba(7, 23, 22, 0.3);
+  transition-duration: 90ms;
+}
+
+/* Cards: a touch more lift, and the photo breathes */
+.card { overflow: hidden; }
+.card-image {
+  transition: transform 600ms var(--ease);
+  will-change: transform;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 50px -18px rgba(7, 23, 22, 0.28);
+}
+.card:hover .card-image { transform: scale(1.04); }
+
+/* Arrow links slide forward */
+.link-arrow {
+  transition: transform 240ms var(--ease), color 200ms var(--ease);
+  display: inline-block;
+}
+.link-arrow:hover { transform: translateX(5px); }
+
+/* Reviews: gentle float + warmer stars on hover */
+.review {
+  transition: transform 380ms var(--ease), box-shadow 380ms var(--ease);
+}
+.review:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 48px -20px rgba(0, 0, 0, 0.5);
+}
+.review .stars { transition: text-shadow 300ms var(--ease); }
+.review:hover .stars { text-shadow: 0 0 18px rgba(200, 116, 84, 0.55); }
+
+/* Light outline button for dark sections */
+.btn-outline-light {
+  border: 1px solid rgba(246, 241, 232, 0.45);
+  color: var(--bg);
+  background: transparent;
+}
+.btn-outline-light:hover {
+  background: var(--bg);
+  color: var(--ink);
+  border-color: var(--bg);
+}
+
+/* Gallery tiles get the same gentle breath */
+.brand-gallery-item, .lifestyle-item {
+  transition: transform 500ms var(--ease), box-shadow 500ms var(--ease);
+}
+.brand-gallery-item:hover, .lifestyle-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 48px -18px rgba(7, 23, 22, 0.35);
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn, .card, .card-image, .split-image[style*="url"], .brand-split-image,
+  .link-arrow, .review, .brand-gallery-item, .lifestyle-item { transition: none; }
+  .btn:hover, .card:hover, .review:hover { transform: none; }
 }
