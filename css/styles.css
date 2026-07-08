@@ -10,7 +10,7 @@
   /* Colors — Lowcountry palette */
   --bg: #f6f1e8;            /* warm sand */
   --bg-card: #fbf6ec;       /* lighter sand for raised surfaces */
-  --bg-deep: #0d2625;       /* deep marsh teal — darkest surface */
+  --bg-deep: #071716;       /* deep marsh teal — near-black, matched to espresso-frame darkness */
   --ink: #142322;           /* near-black with teal undertone */
   --ink-soft: #263938;      /* softer teal-grey for body */
   --ink-mute: #7a8584;      /* mute teal-grey */
@@ -20,7 +20,7 @@
   --gold-deep: #a05a3f;     /* deeper terracotta for hover */
   --oxblood: #8a3a2d;       /* deep clay red for occasional emphasis */
   --teal: #173a39;          /* mid marsh teal — secondary accent */
-  --teal-deep: #0d2625;     /* same as bg-deep, alias for accents */
+  --teal-deep: #071716;     /* same as bg-deep, alias for accents */
   --white: #ffffff;
 
   /* Type */
