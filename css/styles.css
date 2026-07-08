@@ -323,30 +323,35 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   padding: 10px;
   list-style: none;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 200ms var(--ease), transform 260ms var(--ease);
+  visibility: hidden;
+  /* Forgiving close: the menu stays open ~0.9s after the mouse leaves,
+     and stays interactive the whole time — brushing off it won't kill it. */
+  transition: opacity 220ms var(--ease) 900ms,
+              transform 260ms var(--ease) 900ms,
+              visibility 0s linear 1120ms;
   box-shadow:
     0 4px 12px -4px rgba(10, 26, 25,0.10),
     0 24px 60px -12px rgba(10, 26, 25,0.22);
   z-index: 50;
 }
 .nav-primary > li:hover > .nav-dropdown,
-.nav-primary > li:focus-within > .nav-dropdown {
+.nav-primary > li:focus-within > .nav-dropdown,
+.nav-dropdown:hover {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
   transform: translateX(-50%) translateY(0);
+  transition: opacity 200ms var(--ease), transform 260ms var(--ease), visibility 0s;
 }
 /* Invisible bridge between trigger and dropdown so hover doesn't break */
 .nav-primary > li.has-dropdown::after {
   content: '';
   position: absolute;
   top: 100%;
-  left: 0;
-  right: 0;
-  height: 16px;
-  display: none;
+  left: -24px;
+  right: -24px;
+  height: 24px;
+  display: block;
 }
-.nav-primary > li.has-dropdown:hover::after { display: block; }
 
 .nav-dropdown li { position: relative; }
 .nav-dropdown a {
@@ -394,9 +399,12 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   padding: 10px;
   list-style: none;
   opacity: 0;
-  pointer-events: none;
+  visibility: hidden;
   transform: translateX(-8px);
-  transition: opacity 200ms var(--ease), transform 260ms var(--ease);
+  /* Same forgiving close delay as the parent dropdown */
+  transition: opacity 220ms var(--ease) 900ms,
+              transform 260ms var(--ease) 900ms,
+              visibility 0s linear 1120ms;
   box-shadow:
     0 4px 12px -4px rgba(10, 26, 25,0.10),
     0 24px 60px -12px rgba(10, 26, 25,0.22);
@@ -404,11 +412,22 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   max-height: 72vh;
   overflow-y: auto;
 }
+/* Wide invisible bridge covering the gap between dropdown item and flyout */
+.nav-dropdown li.has-submenu::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: 100%;
+  width: 20px;
+}
 .nav-dropdown li:hover > .nav-submenu,
-.nav-dropdown li:focus-within > .nav-submenu {
+.nav-dropdown li:focus-within > .nav-submenu,
+.nav-submenu:hover {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
   transform: translateX(0);
+  transition: opacity 200ms var(--ease), transform 260ms var(--ease), visibility 0s;
 }
 /* Scrollbar styling inside submenu */
 .nav-submenu::-webkit-scrollbar { width: 6px; }
