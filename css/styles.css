@@ -2605,3 +2605,30 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   .link-arrow, .review, .brand-gallery-item, .lifestyle-item { transition: none; }
   .btn:hover, .card:hover, .review:hover { transform: none; }
 }
+
+/* ---------- Brand gallery marquee: one clean row, slow auto-scroll ---------- */
+.gallery-marquee {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+}
+.gallery-marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  padding-right: 16px;
+  animation: gallery-scroll 55s linear infinite;
+  will-change: transform;
+}
+.gallery-marquee:hover .gallery-marquee-track { animation-play-state: paused; }
+.gallery-marquee .brand-gallery-item {
+  width: clamp(280px, 31vw, 400px);
+  flex-shrink: 0;
+}
+@keyframes gallery-scroll {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-marquee-track { animation: none; }
+}
