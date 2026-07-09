@@ -2636,10 +2636,8 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 /* ---------- Footer logo: white version of the wordmark ---------- */
 .footer-logo {
   display: block;
-  height: clamp(52px, 5vw, 74px);
+  height: clamp(42px, 4vw, 58px);
   width: auto;
-  max-width: 340px;
+  max-width: 300px;
   object-fit: contain;
-  /* Strip the white background, then force the mark to pure white */
-  filter: url(#strip-white-bg) brightness(0) invert(1);
 }
