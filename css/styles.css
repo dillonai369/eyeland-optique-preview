@@ -762,8 +762,8 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   width: 100%;
   margin: 0;
   /* Asymmetric padding — smaller top, larger bottom — shifts the centered
-     content slightly upward in the hero with more breathing room beneath. */
-  padding: clamp(40px, 6vw, 70px) 0 clamp(120px, 16vw, 200px) clamp(20px, 2.5vw, 36px);
+     content upward so headline, subheadline and CTAs are all in view on load. */
+  padding: clamp(30px, 4.5vw, 54px) 0 clamp(150px, 19vw, 240px) clamp(20px, 2.5vw, 36px);
   max-width: 100%;
 }
 
