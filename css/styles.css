@@ -326,9 +326,9 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   visibility: hidden;
   /* Forgiving close: the menu stays open ~0.9s after the mouse leaves,
      and stays interactive the whole time — brushing off it won't kill it. */
-  transition: opacity 220ms var(--ease) 900ms,
-              transform 260ms var(--ease) 900ms,
-              visibility 0s linear 1120ms;
+  transition: opacity 180ms var(--ease) 150ms,
+              transform 220ms var(--ease) 150ms,
+              visibility 0s linear 330ms;
   box-shadow:
     0 4px 12px -4px rgba(10, 26, 25,0.10),
     0 24px 60px -12px rgba(10, 26, 25,0.22);
@@ -402,9 +402,9 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   visibility: hidden;
   transform: translateX(-8px);
   /* Same forgiving close delay as the parent dropdown */
-  transition: opacity 220ms var(--ease) 900ms,
-              transform 260ms var(--ease) 900ms,
-              visibility 0s linear 1120ms;
+  transition: opacity 180ms var(--ease) 150ms,
+              transform 220ms var(--ease) 150ms,
+              visibility 0s linear 330ms;
   box-shadow:
     0 4px 12px -4px rgba(10, 26, 25,0.10),
     0 24px 60px -12px rgba(10, 26, 25,0.22);
