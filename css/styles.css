@@ -1365,7 +1365,8 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 /* ---------- Brand page: cinematic full-bleed hero (main.webp behind title) ---------- */
 .brand-hero-cinematic {
   position: relative;
-  min-height: clamp(440px, 64vh, 660px);
+  aspect-ratio: 1774 / 488;
+  min-height: 320px;
   background-color: var(--bg-deep);
   background-size: cover;
   background-position: center;
