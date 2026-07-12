@@ -1,6 +1,15 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/eye-care/myopia-control", "destination": "/eye-care/pediatric", "permanent": true },
+    { "source": "/lens-technology/stellest", "destination": "/lens-technology/", "permanent": true },
+    { "source": "/eyewear/costa", "destination": "/eyewear/", "permanent": true },
+    { "source": "/eyewear/tom-davies", "destination": "/eyewear/custom", "permanent": true },
+    { "source": "/eyewear/evolve", "destination": "/eyewear/", "permanent": true },
+    { "source": "/journal/myopia-control-for-island-kids", "destination": "/journal/", "permanent": true },
+    { "source": "/journal/maui-jim-vs-costa-vs-vuarnet", "destination": "/journal/maui-jim-vs-vuarnet", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)\\.(png|webp|jpg|jpeg|gif|svg|mp4|webm|woff2)",
