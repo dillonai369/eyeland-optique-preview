@@ -4,6 +4,9 @@
   "redirects": [
     { "source": "/eye-care/myopia-control", "destination": "/eye-care/pediatric", "permanent": true },
     { "source": "/lens-technology/stellest", "destination": "/lens-technology/", "permanent": true },
+    { "source": "/lens-technology/enchroma", "destination": "/lens-technology/", "permanent": true },
+    { "source": "/lens-technology/avulux", "destination": "/lens-technology/", "permanent": true },
+    { "source": "/lens-technology/neurolens", "destination": "/lens-technology/", "permanent": true },
     { "source": "/eyewear/costa", "destination": "/eyewear/", "permanent": true },
     { "source": "/eyewear/tom-davies", "destination": "/eyewear/custom", "permanent": true },
     { "source": "/eyewear/evolve", "destination": "/eyewear/", "permanent": true },

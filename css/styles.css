@@ -2642,3 +2642,9 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   max-width: 300px;
   object-fit: contain;
 }
+
+/* ---------- All Collections: roomier 2-col cards with long images ---------- */
+.collections-grid .card-image { aspect-ratio: 16/8; }
+/* ---------- The Wall tiles ---------- */
+.wall-tile { display: block; }
+.wall-tile:hover { transform: scale(1.03); }
