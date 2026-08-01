@@ -2644,7 +2644,11 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 }
 
 /* ---------- All Collections: roomier 2-col cards with long images ---------- */
-.collections-grid .card-image { aspect-ratio: 16/8; }
+.collections-grid .card-image {
+  aspect-ratio: 1774 / 887;   /* matches the Hero URL share-image format */
+  background-size: cover;
+  background-position: center;
+}
 /* ---------- The Wall tiles ---------- */
 .wall-tile { display: block; }
 .wall-tile:hover { transform: scale(1.03); }
