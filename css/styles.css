@@ -2648,3 +2648,19 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 /* ---------- The Wall tiles ---------- */
 .wall-tile { display: block; }
 .wall-tile:hover { transform: scale(1.03); }
+
+/* ---------- Faces marquee (brands with 5+ model shots) ---------- */
+.face-marquee-item {
+  width: clamp(240px, 26vw, 340px);
+  aspect-ratio: 4 / 5;
+  flex-shrink: 0;
+  background-color: var(--bg-card);
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  transition: transform 500ms var(--ease), box-shadow 500ms var(--ease);
+}
+.face-marquee-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 48px -18px rgba(7,23,22,0.4);
+}
