@@ -2701,3 +2701,10 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 .g-stars { display: inline-flex; gap: 2px; }
 .g-text { color: #3c4043; font-size: 0.95rem; line-height: 1.6; margin: 0; }
 .g-source { color: #80868b; font-size: 0.78rem; margin-top: auto; }
+
+/* Force dark text inside Google review cards (overrides .bg-deep light text) */
+.bg-deep .g-review .g-name { color: #202124; }
+.bg-deep .g-review .g-when { color: #5f6368; }
+.bg-deep .g-review .g-text,
+.bg-deep .g-review p { color: #3c4043; }
+.bg-deep .g-review .g-source { color: #80868b; }
