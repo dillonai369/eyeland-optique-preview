@@ -2664,3 +2664,40 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   transform: scale(1.02);
   box-shadow: 0 20px 48px -18px rgba(7,23,22,0.4);
 }
+
+/* ---------- Google-style reviews ---------- */
+.g-summary {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; flex-wrap: wrap;
+  background: rgba(246,241,232,0.06);
+  border: 1px solid rgba(246,241,232,0.14);
+  border-radius: 18px;
+  padding: 20px 28px;
+  margin: 0 auto clamp(34px, 4.5vw, 52px);
+  max-width: 560px;
+}
+.g-summary-score { font-family: var(--display); font-size: 2.1rem; color: var(--bg); line-height: 1; }
+.g-summary-stars { display: inline-flex; gap: 2px; }
+.g-summary-label { color: rgba(246,241,232,0.72); font-size: 0.88rem; }
+.g-review {
+  background: var(--white);
+  border-radius: 16px;
+  padding: clamp(22px, 2.6vw, 30px);
+  box-shadow: 0 6px 22px -10px rgba(0,0,0,0.45);
+  display: flex; flex-direction: column; gap: 12px;
+  transition: transform 380ms var(--ease), box-shadow 380ms var(--ease);
+}
+.g-review:hover { transform: translateY(-5px); box-shadow: 0 20px 46px -18px rgba(0,0,0,0.55); }
+.g-review-head { display: flex; align-items: center; gap: 12px; }
+.g-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  display: grid; place-items: center;
+  color: #fff; font-family: var(--body); font-weight: 600; font-size: 1.05rem;
+  flex-shrink: 0;
+}
+.g-name { font-family: var(--body); font-weight: 600; color: #202124; font-size: 0.97rem; }
+.g-when { color: #5f6368; font-size: 0.8rem; }
+.g-logo { margin-left: auto; flex-shrink: 0; }
+.g-stars { display: inline-flex; gap: 2px; }
+.g-text { color: #3c4043; font-size: 0.95rem; line-height: 1.6; margin: 0; }
+.g-source { color: #80868b; font-size: 0.78rem; margin-top: auto; }
