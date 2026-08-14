@@ -338,6 +338,44 @@
 </section>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long does a comprehensive eye exam take?", "acceptedAnswer": {"@type": "Answer", "text": "Plan on 45 to 60 minutes. That covers the full workup \u2014 refraction, no-puff pressure, visual fields, retinal imaging \u2014 plus unhurried time to actually talk through the findings and your questions."}}, {"@type": "Question", "name": "Do you use the air-puff test?", "acceptedAnswer": {"@type": "Answer", "text": "No. We measure eye pressure with modern no-puff instruments, so there's nothing to flinch about."}}, {"@type": "Question", "name": "Do you take my insurance?", "acceptedAnswer": {"@type": "Answer", "text": "We accept VSP, EyeMed, Aetna, BCBS, Humana, Cigna, MetLife, Medicare, and most major plans \u2014 and we verify your benefits before your appointment so there are no surprises."}}]}</script>
+<script>
+(function () {
+  document.querySelectorAll('#contactForm, #apptForm').forEach(function (form) {
+    var status = form.querySelector('.form-status');
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn ? btn.textContent : 'Send';
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var data = Object.fromEntries(new FormData(form).entries());
+      btn.disabled = true; btn.textContent = 'Sending…';
+      status.textContent = ''; status.className = 'form-status';
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (res.ok && res.j.ok) {
+          form.reset();
+          status.className = 'form-status is-good';
+          status.textContent = 'Thank you — your message is on its way. We’ll be in touch within one business day.';
+        } else {
+          status.className = 'form-status is-bad';
+          status.textContent = (res.j && res.j.error) || 'Something went wrong. Please call the shop at 843 681 2020.';
+        }
+      })
+      .catch(function () {
+        status.className = 'form-status is-bad';
+        status.textContent = 'Network problem. Please call the shop at 843 681 2020.';
+      })
+      .finally(function () { btn.disabled = false; btn.textContent = label; });
+    });
+  });
+})();
+</script>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -379,6 +417,7 @@
     </div>
     <div class="footer-bottom">
       <div>&copy; 2026 Eyeland Optique. All rights reserved.</div>
+      <div class="footer-legal"><a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms of Use</a></div>
       <div class="footer-social">
         <a href="https://www.facebook.com/EyelandOptique/" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>

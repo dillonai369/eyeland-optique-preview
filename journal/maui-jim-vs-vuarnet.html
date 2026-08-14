@@ -332,6 +332,44 @@
 </section>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Maui Jim or Vuarnet \u2014 which polarized lens for which water?", "description": "Two serious polarized houses, two different personalities. A guide to matching the lens to your day on (or near) the water.", "image": "https://island.studio7.select/images/journal/sun-water.webp", "datePublished": "2026-07-01", "dateModified": "2026-07-12", "author": {"@type": "Organization", "name": "Eyeland Optique", "url": "https://island.studio7.select"}, "publisher": {"@type": "Organization", "name": "Eyeland Optique", "logo": {"@type": "ImageObject", "url": "https://island.studio7.select/images/logo/main-logo.webp"}}, "mainEntityOfPage": "https://island.studio7.select/journal/maui-jim-vs-vuarnet"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which is better for boating \u2014 Maui Jim or Vuarnet?", "acceptedAnswer": {"@type": "Answer", "text": "For all-day boating most of our clients choose Maui Jim for its PolarizedPlus2 color boost and lighter weight. Vuarnet's mineral glass wins on optical purity and scratch resistance if you don't mind a little more weight."}}, {"@type": "Question", "name": "Can I get either brand in my prescription?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 we fit prescription sun lenses in both, including progressives. Bring your current prescription or book an exam and we'll build them from scratch."}}, {"@type": "Question", "name": "Are glass or plastic sun lenses better?", "acceptedAnswer": {"@type": "Answer", "text": "Mineral glass (Vuarnet) is optically clearer and nearly scratch-proof but heavier. Modern polarized plastics (Maui Jim) are lighter and safer for sport. The right answer depends on how you'll wear them \u2014 come talk it through."}}]}</script>
+<script>
+(function () {
+  document.querySelectorAll('#contactForm, #apptForm').forEach(function (form) {
+    var status = form.querySelector('.form-status');
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn ? btn.textContent : 'Send';
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var data = Object.fromEntries(new FormData(form).entries());
+      btn.disabled = true; btn.textContent = 'Sending…';
+      status.textContent = ''; status.className = 'form-status';
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (res.ok && res.j.ok) {
+          form.reset();
+          status.className = 'form-status is-good';
+          status.textContent = 'Thank you — your message is on its way. We’ll be in touch within one business day.';
+        } else {
+          status.className = 'form-status is-bad';
+          status.textContent = (res.j && res.j.error) || 'Something went wrong. Please call the shop at 843 681 2020.';
+        }
+      })
+      .catch(function () {
+        status.className = 'form-status is-bad';
+        status.textContent = 'Network problem. Please call the shop at 843 681 2020.';
+      })
+      .finally(function () { btn.disabled = false; btn.textContent = label; });
+    });
+  });
+})();
+</script>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -373,6 +411,7 @@
     </div>
     <div class="footer-bottom">
       <div>&copy; 2026 Eyeland Optique. All rights reserved.</div>
+      <div class="footer-legal"><a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms of Use</a></div>
       <div class="footer-social">
         <a href="https://www.facebook.com/EyelandOptique/" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>

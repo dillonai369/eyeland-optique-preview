@@ -332,6 +332,44 @@
 </section>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "What \u201cPolarizedPlus2\u201d actually means", "description": "A plain-English breakdown of how Maui Jim's signature lens works \u2014 and why we recommend it for life on the water.", "image": "https://island.studio7.select/images/journal/polarized-sun.webp", "datePublished": "2026-07-01", "dateModified": "2026-07-12", "author": {"@type": "Organization", "name": "Eyeland Optique", "url": "https://island.studio7.select"}, "publisher": {"@type": "Organization", "name": "Eyeland Optique", "logo": {"@type": "ImageObject", "url": "https://island.studio7.select/images/logo/main-logo.webp"}}, "mainEntityOfPage": "https://island.studio7.select/journal/what-polarizedplus2-means"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is polarization worth it on Hilton Head?", "acceptedAnswer": {"@type": "Answer", "text": "If you spend any time on the water, the beach, or the road here, yes \u2014 polarization eliminates the horizontal glare that flat surfaces throw back at you, which is most of what tires your eyes outdoors on the island."}}, {"@type": "Question", "name": "Can polarized lenses be made in my prescription?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 including progressives. We build prescription Maui Jim lenses in every tint they offer."}}, {"@type": "Question", "name": "Why do my phone and dashboard look odd through polarized lenses?", "acceptedAnswer": {"@type": "Answer", "text": "Screens emit polarized light of their own, so certain angles create rainbowing or dimming. It's normal, harmless, and usually fixed by a slight head tilt."}}]}</script>
+<script>
+(function () {
+  document.querySelectorAll('#contactForm, #apptForm').forEach(function (form) {
+    var status = form.querySelector('.form-status');
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn ? btn.textContent : 'Send';
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var data = Object.fromEntries(new FormData(form).entries());
+      btn.disabled = true; btn.textContent = 'Sending…';
+      status.textContent = ''; status.className = 'form-status';
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (res.ok && res.j.ok) {
+          form.reset();
+          status.className = 'form-status is-good';
+          status.textContent = 'Thank you — your message is on its way. We’ll be in touch within one business day.';
+        } else {
+          status.className = 'form-status is-bad';
+          status.textContent = (res.j && res.j.error) || 'Something went wrong. Please call the shop at 843 681 2020.';
+        }
+      })
+      .catch(function () {
+        status.className = 'form-status is-bad';
+        status.textContent = 'Network problem. Please call the shop at 843 681 2020.';
+      })
+      .finally(function () { btn.disabled = false; btn.textContent = label; });
+    });
+  });
+})();
+</script>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -373,6 +411,7 @@
     </div>
     <div class="footer-bottom">
       <div>&copy; 2026 Eyeland Optique. All rights reserved.</div>
+      <div class="footer-legal"><a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms of Use</a></div>
       <div class="footer-social">
         <a href="https://www.facebook.com/EyelandOptique/" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>

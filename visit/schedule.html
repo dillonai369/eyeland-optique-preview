@@ -256,10 +256,9 @@
       <div>
         <span class="eyebrow reveal">Prefer to send a request?</span>
         <h2 class="reveal" style="margin-bottom: 30px;">Tell us what you'd like to book.</h2>
-        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form reveal">
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-          <input type="hidden" name="subject" value="New appointment request — EyelandOptique.com">
-          <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
+        <form id="apptForm" class="contact-form reveal" novalidate>
+          <input type="hidden" name="form_type" value="Appointment request">
+          <input type="text" name="botcheck" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" aria-hidden="true">
           <label>
             <span>Your name</span>
             <input type="text" name="name" required>
@@ -292,7 +291,12 @@
             <span>Anything else we should know?</span>
             <textarea name="message" rows="4" placeholder="New patient? Specific frame interest? Insurance plan?"></textarea>
           </label>
+          <label class="form-consent">
+            <input type="checkbox" name="consent" value="yes" required>
+            <span>I agree that Eyeland Optique may use the information above to contact me about this request, as described in the <a href="../privacy.html" target="_blank" rel="noopener">Privacy Policy</a>. I understand this is a request, not a confirmed appointment, and that I should not send medical details through this form.</span>
+          </label>
           <button type="submit" class="btn btn-primary">Request Appointment</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
 
@@ -325,6 +329,44 @@
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  document.querySelectorAll('#contactForm, #apptForm').forEach(function (form) {
+    var status = form.querySelector('.form-status');
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn ? btn.textContent : 'Send';
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var data = Object.fromEntries(new FormData(form).entries());
+      btn.disabled = true; btn.textContent = 'Sending…';
+      status.textContent = ''; status.className = 'form-status';
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (res.ok && res.j.ok) {
+          form.reset();
+          status.className = 'form-status is-good';
+          status.textContent = 'Thank you — your message is on its way. We’ll be in touch within one business day.';
+        } else {
+          status.className = 'form-status is-bad';
+          status.textContent = (res.j && res.j.error) || 'Something went wrong. Please call the shop at 843 681 2020.';
+        }
+      })
+      .catch(function () {
+        status.className = 'form-status is-bad';
+        status.textContent = 'Network problem. Please call the shop at 843 681 2020.';
+      })
+      .finally(function () { btn.disabled = false; btn.textContent = label; });
+    });
+  });
+})();
+</script>
 
 <footer class="site-footer">
   <div class="container">
@@ -367,6 +409,7 @@
     </div>
     <div class="footer-bottom">
       <div>&copy; 2026 Eyeland Optique. All rights reserved.</div>
+      <div class="footer-legal"><a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms of Use</a></div>
       <div class="footer-social">
         <a href="https://www.facebook.com/EyelandOptique/" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>

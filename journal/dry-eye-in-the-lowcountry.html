@@ -333,6 +333,44 @@
 </section>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The dry-eye conversation we have with every patient", "description": "Why dry eye is so common in the Lowcountry, what we look for during the exam, and what actually moves the needle.", "image": "https://island.studio7.select/images/journal/dry-eye-care.webp", "datePublished": "2026-07-01", "dateModified": "2026-07-12", "author": {"@type": "Organization", "name": "Eyeland Optique", "url": "https://island.studio7.select"}, "publisher": {"@type": "Organization", "name": "Eyeland Optique", "logo": {"@type": "ImageObject", "url": "https://island.studio7.select/images/logo/main-logo.webp"}}, "mainEntityOfPage": "https://island.studio7.select/journal/dry-eye-in-the-lowcountry"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are the main symptoms of dry eye?", "acceptedAnswer": {"@type": "Answer", "text": "Burning, grittiness, watering (yes, watering), fluctuating vision, and eyes that feel worse at the end of the day or with contact lenses. If drops aren't fixing it, the cause is usually the oil glands, not the water."}}, {"@type": "Question", "name": "Does insurance cover a dry eye evaluation?", "acceptedAnswer": {"@type": "Answer", "text": "Medical insurance typically covers dry eye visits because it's a medical condition \u2014 Aetna, BCBS, Humana, Cigna, MetLife, and Medicare among them. Call us with your card and we'll verify in minutes."}}, {"@type": "Question", "name": "How fast will treatment work?", "acceptedAnswer": {"@type": "Answer", "text": "Most patients feel meaningful improvement within four to six weeks of starting a targeted plan \u2014 lid therapy, the right drops, and omega-3 support \u2014 with continued gains over several months."}}]}</script>
+<script>
+(function () {
+  document.querySelectorAll('#contactForm, #apptForm').forEach(function (form) {
+    var status = form.querySelector('.form-status');
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn ? btn.textContent : 'Send';
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var data = Object.fromEntries(new FormData(form).entries());
+      btn.disabled = true; btn.textContent = 'Sending…';
+      status.textContent = ''; status.className = 'form-status';
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (res.ok && res.j.ok) {
+          form.reset();
+          status.className = 'form-status is-good';
+          status.textContent = 'Thank you — your message is on its way. We’ll be in touch within one business day.';
+        } else {
+          status.className = 'form-status is-bad';
+          status.textContent = (res.j && res.j.error) || 'Something went wrong. Please call the shop at 843 681 2020.';
+        }
+      })
+      .catch(function () {
+        status.className = 'form-status is-bad';
+        status.textContent = 'Network problem. Please call the shop at 843 681 2020.';
+      })
+      .finally(function () { btn.disabled = false; btn.textContent = label; });
+    });
+  });
+})();
+</script>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -374,6 +412,7 @@
     </div>
     <div class="footer-bottom">
       <div>&copy; 2026 Eyeland Optique. All rights reserved.</div>
+      <div class="footer-legal"><a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms of Use</a></div>
       <div class="footer-social">
         <a href="https://www.facebook.com/EyelandOptique/" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>

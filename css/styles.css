@@ -2712,3 +2712,18 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 .bg-deep .g-review .g-text,
 .bg-deep .g-review p { color: #3c4043; }
 .bg-deep .g-review .g-source { color: #80868b; }
+
+/* ---------- Form consent + status ---------- */
+.form-consent {
+  display: flex; gap: 12px; align-items: flex-start;
+  font-size: 0.84rem; line-height: 1.6; color: var(--ink-soft);
+  margin: 4px 0 8px;
+}
+.form-consent input[type="checkbox"] {
+  width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--gold);
+}
+.form-consent a { text-decoration: underline; }
+.form-status { margin: 12px 0 0; font-size: 0.9rem; line-height: 1.55; }
+.form-status.is-good { color: #1c6b4a; font-weight: 500; }
+.form-status.is-bad  { color: #a33; font-weight: 500; }
+.footer-legal a { text-decoration: underline; }

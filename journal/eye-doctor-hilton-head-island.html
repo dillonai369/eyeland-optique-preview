@@ -333,6 +333,44 @@
 </section>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Finding the right eye doctor on Hilton Head Island", "description": "What to look for in an island optometrist \u2014 from exam technology to insurance \u2014 and why boutique care beats the big-box experience.", "image": "https://island.studio7.select/images/journal/hh-storefront.webp", "datePublished": "2026-07-01", "dateModified": "2026-07-12", "author": {"@type": "Organization", "name": "Eyeland Optique", "url": "https://island.studio7.select"}, "publisher": {"@type": "Organization", "name": "Eyeland Optique", "logo": {"@type": "ImageObject", "url": "https://island.studio7.select/images/logo/main-logo.webp"}}, "mainEntityOfPage": "https://island.studio7.select/journal/eye-doctor-hilton-head-island"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need an appointment for an eye exam on Hilton Head?", "acceptedAnswer": {"@type": "Answer", "text": "Booking ahead is smart \u2014 we usually have openings within the week and you can schedule online in under a minute. Walk-ins for repairs and adjustments are always welcome."}}, {"@type": "Question", "name": "What insurance do Hilton Head eye doctors take?", "acceptedAnswer": {"@type": "Answer", "text": "At Eyeland Optique we accept VSP, EyeMed, Aetna, BCBS, Humana, Cigna, MetLife, and Medicare \u2014 and if we're out of network with your plan, we prepare the receipt and claim form for you to submit for reimbursement."}}, {"@type": "Question", "name": "Can visitors get eye care on the island?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. Vacationers come to us for emergency repairs, replacement contacts, and even full exams. If your glasses break on day one of the trip, walk in \u2014 it's a specialty of ours."}}]}</script>
+<script>
+(function () {
+  document.querySelectorAll('#contactForm, #apptForm').forEach(function (form) {
+    var status = form.querySelector('.form-status');
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn ? btn.textContent : 'Send';
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var data = Object.fromEntries(new FormData(form).entries());
+      btn.disabled = true; btn.textContent = 'Sending…';
+      status.textContent = ''; status.className = 'form-status';
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (res.ok && res.j.ok) {
+          form.reset();
+          status.className = 'form-status is-good';
+          status.textContent = 'Thank you — your message is on its way. We’ll be in touch within one business day.';
+        } else {
+          status.className = 'form-status is-bad';
+          status.textContent = (res.j && res.j.error) || 'Something went wrong. Please call the shop at 843 681 2020.';
+        }
+      })
+      .catch(function () {
+        status.className = 'form-status is-bad';
+        status.textContent = 'Network problem. Please call the shop at 843 681 2020.';
+      })
+      .finally(function () { btn.disabled = false; btn.textContent = label; });
+    });
+  });
+})();
+</script>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -374,6 +412,7 @@
     </div>
     <div class="footer-bottom">
       <div>&copy; 2026 Eyeland Optique. All rights reserved.</div>
+      <div class="footer-legal"><a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms of Use</a></div>
       <div class="footer-social">
         <a href="https://www.facebook.com/EyelandOptique/" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
