@@ -6,7 +6,7 @@
 // Optional:               NOTIFY_TO_EMAIL  (defaults to info@eyelandoptique.com)
 
 const TO = process.env.NOTIFY_TO_EMAIL || 'info@eyelandoptique.com';
-const FROM = 'Eyeland Optique Website <onboarding@resend.dev>';
+const FROM = 'Eyeland Optique Website <website@send.eyelandoptique.com>';
 
 const esc = (v = '') =>
   String(v).replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]));
