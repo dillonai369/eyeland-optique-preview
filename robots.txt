@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://island.studio7.select/sitemap.xml
+Sitemap: https://eyelandoptique.com/sitemap.xml
