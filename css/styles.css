@@ -2953,7 +2953,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 .ms-static {
   display: flex;
   align-items: stretch;
-  gap: clamp(10px, 1.3vw, 15px);
+  gap: clamp(20px, 2.6vw, 30px);
   flex-wrap: wrap;
 }
 
