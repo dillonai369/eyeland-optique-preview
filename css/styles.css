@@ -2727,3 +2727,145 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 .form-status.is-good { color: #1c6b4a; font-weight: 500; }
 .form-status.is-bad  { color: #a33; font-weight: 500; }
 .footer-legal a { text-decoration: underline; }
+
+/* =========================================================
+   Awards & Recognition
+   Engraved, not enamelled. Two metal tones reserved solely
+   for award marks so they read as ceremonial without
+   fighting the terracotta accent.
+   ========================================================= */
+:root {
+  --medal-gold: #b08d57;    /* antique brass — muted, not shiny */
+  --medal-silver: #8e9694;  /* pewter, tuned to the teal-grey family */
+}
+
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 3vw, 44px);
+  margin-top: clamp(28px, 4vw, 46px);
+}
+
+.award-year {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+
+.award-year-num {
+  font-family: var(--display);
+  font-size: clamp(2.1rem, 3.4vw, 3rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+
+.award-list { list-style: none; margin: 0; padding: 0; }
+
+.award-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-top: 1px solid var(--line-soft);
+}
+.award-row:first-child { border-top: 0; }
+
+.award-rank {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-family: var(--body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.award-rank--gold { color: var(--medal-gold); }
+.award-rank--silver { color: var(--medal-silver); }
+
+.award-cat {
+  font-family: var(--display);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  color: var(--ink-soft);
+  line-height: 1.3;
+}
+
+.award-note {
+  margin-top: clamp(26px, 3.5vw, 40px);
+  font-size: 0.85rem;
+  color: var(--ink-mute);
+  line-height: 1.7;
+}
+.award-note a { color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--t-fast) var(--ease); }
+.award-note a:hover { border-bottom-color: var(--gold); }
+
+/* Compact dark strip (Visit page) */
+.award-strip {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 22px);
+  flex-wrap: wrap;
+}
+.award-strip-copy { flex: 1 1 320px; }
+.award-strip-title {
+  font-family: var(--display);
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
+  color: var(--bg);
+  line-height: 1.25;
+}
+.award-strip-sub {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: rgba(246, 241, 232, 0.62);
+  letter-spacing: 0.02em;
+}
+.award-strip-link {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-fast) var(--ease);
+}
+.award-strip-link:hover { border-bottom-color: var(--gold); }
+
+/* Press list (About page) */
+.press-list { list-style: none; margin: 0; padding: 0; }
+.press-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 18px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.press-list li:last-child { border-bottom: 1px solid var(--line); }
+.press-list a {
+  font-family: var(--display);
+  font-size: clamp(1.02rem, 1.3vw, 1.2rem);
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.press-list a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+.press-list span {
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .award-grid { grid-template-columns: 1fr; gap: 6px; }
+  .award-year { padding-top: 18px; }
+  .award-year-num { margin-bottom: 10px; }
+}
