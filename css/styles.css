@@ -2634,6 +2634,21 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   .gallery-marquee-track { animation: none; }
 }
 
+/* ---------- "In the world" band: counter-scrolling, larger, slower ----------
+   Runs right-to-left against the gallery above it so the two bands read as
+   opposing currents. 61s vs the gallery's 55s = ~10% slower.            */
+.life-marquee-track {
+  animation-name: life-scroll;
+  animation-duration: 61s;
+}
+@keyframes life-scroll {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .life-marquee-track { animation: none; }
+}
+
 /* ---------- Footer logo: white version of the wordmark ---------- */
 .footer-logo {
   display: block;
@@ -2655,7 +2670,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 
 /* ---------- Faces marquee (brands with 5+ model shots) ---------- */
 .face-marquee-item {
-  width: clamp(240px, 26vw, 340px);
+  width: clamp(288px, 31.2vw, 408px);
   aspect-ratio: 4 / 5;
   flex-shrink: 0;
   background-color: var(--bg-card);
