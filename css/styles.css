@@ -2964,8 +2964,8 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 .ms-group {
   display: flex;
   align-items: stretch;
-  gap: 14px;
-  padding-right: 14px;
+  gap: 12px;
+  padding-right: 12px;
 }
 
 @keyframes ms-scroll {
@@ -2976,13 +2976,13 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 /* --- tile --- */
 .ms-tile {
   flex: 0 0 auto;
-  width: 208px;
-  min-height: 104px;
+  width: 198px;
+  min-height: 99px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4px;
-  padding: 18px 22px;
+  gap: 3px;
+  padding: 14px 17px;
   border: 1px solid var(--line);
   border-radius: 16px;
   background: var(--bg);
@@ -3025,16 +3025,11 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 .ms-tile--award {
   flex-direction: row;
   align-items: center;
-  gap: 13px;
+  gap: 11px;
   background: linear-gradient(160deg, rgba(176, 141, 87, 0.09), rgba(176, 141, 87, 0.02));
   border-color: rgba(176, 141, 87, 0.34);
 }
 .ms-tile--award:hover { border-color: rgba(176, 141, 87, 0.7); }
-.ms-tile--silver {
-  background: linear-gradient(160deg, rgba(142, 150, 148, 0.11), rgba(142, 150, 148, 0.02));
-  border-color: rgba(142, 150, 148, 0.36);
-}
-.ms-tile--silver:hover { border-color: rgba(142, 150, 148, 0.72); }
 
 .ms-medal { flex-shrink: 0; }
 .ms-award-copy { display: flex; flex-direction: column; gap: 4px; }
@@ -3045,7 +3040,6 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   text-transform: uppercase;
   color: var(--medal-gold);
 }
-.ms-tile--silver .ms-award-rank { color: var(--medal-silver); }
 .ms-award-cat {
   font-family: var(--display);
   font-size: 0.98rem;
@@ -3054,7 +3048,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 }
 
 @media (max-width: 700px) {
-  .ms-tile { width: 178px; min-height: 92px; padding: 15px 18px; }
+  .ms-tile { width: 169px; min-height: 87px; padding: 12px 15px; }
   .ms-track { animation-duration: 48s; }
 }
 
