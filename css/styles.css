@@ -2636,10 +2636,10 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 
 /* ---------- "In the world" band: counter-scrolling, larger, slower ----------
    Runs right-to-left against the gallery above it so the two bands read as
-   opposing currents. 61s vs the gallery's 55s = ~10% slower.            */
+   opposing currents. 74s vs the gallery's 55s = ~35% slower.            */
 .life-marquee-track {
   animation-name: life-scroll;
-  animation-duration: 61s;
+  animation-duration: 74s;
 }
 @keyframes life-scroll {
   from { transform: translateX(-50%); }
