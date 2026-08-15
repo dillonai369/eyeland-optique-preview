@@ -2935,11 +2935,10 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
     padding-top: 12px; width: 100%;
     border-top: 1px solid rgba(246, 241, 232, 0.16);
   }
-}
-/* =========================================================
-   Milestone banner — static
-   Stats/milestones left, gold awards right. Tiles size to
-   their content so rows pack evenly instead of leaving gaps.
+}/* =========================================================
+   Milestone banner — static, single row
+   Three stat tiles left, one combined award pillar right.
+   All items stretch to a common height; nothing stacks.
    ========================================================= */
 .ms-band {
   padding: clamp(18px, 2.4vw, 26px) 0;
@@ -2950,51 +2949,45 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 
 .ms-static {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: clamp(16px, 2.4vw, 34px);
+  align-items: stretch;
+  gap: clamp(12px, 1.6vw, 20px);
   flex-wrap: wrap;
 }
 
-.ms-cluster {
+.ms-cluster--stats {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.ms-cluster--stats  { flex: 1 1 560px; }
-.ms-cluster--awards { flex: 0 1 auto; justify-content: flex-end; }
-
-/* --- tile --- */
-.ms-tile {
+  align-items: stretch;
+  gap: clamp(10px, 1.2vw, 14px);
   flex: 0 1 auto;
-  min-width: 148px;
-  min-height: 92px;
+}
+
+/* --- stat tile --- */
+.ms-tile {
+  flex: 1 1 auto;
+  min-width: 132px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 3px;
-  padding: 13px 16px;
+  padding: 14px 18px;
   border: 1px solid var(--line);
   border-radius: 15px;
   background: var(--bg);
-  text-decoration: none;
   transition: border-color var(--t-med) var(--ease), transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
 }
 .ms-tile:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 26px -14px rgba(7, 23, 22, 0.26);
 }
-
 .ms-num {
   font-family: var(--display);
-  font-size: clamp(1.75rem, 2.9vw, 2.4rem);
+  font-size: clamp(1.8rem, 2.9vw, 2.45rem);
   font-weight: 300;
   letter-spacing: -0.03em;
   line-height: 1;
   color: var(--ink);
 }
 .ms-num em { color: var(--gold-deep); font-style: italic; }
-
 .ms-label {
   font-size: 0.66rem;
   letter-spacing: 0.13em;
@@ -3003,47 +2996,97 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   line-height: 1.4;
 }
 
-.ms-note-top {
+/* --- combined award pillar --- */
+.ms-pillar {
+  flex: 1 1 420px;
+  display: flex;
+  align-items: center;
+  gap: clamp(13px, 1.6vw, 20px);
+  padding: 14px clamp(18px, 2vw, 24px);
+  border: 1px solid rgba(176, 141, 87, 0.36);
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(176, 141, 87, 0.11), rgba(176, 141, 87, 0.02) 62%);
+  text-decoration: none;
+  transition: border-color var(--t-med) var(--ease), transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
+}
+.ms-pillar:hover {
+  border-color: rgba(176, 141, 87, 0.72);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px -14px rgba(7, 23, 22, 0.26);
+}
+.ms-pillar .ms-medal { flex-shrink: 0; }
+
+.ms-pillar-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.ms-pillar-eyebrow {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--medal-gold);
+  margin-bottom: 1px;
+}
+.ms-pillar-line {
   font-family: var(--display);
-  font-size: clamp(1.25rem, 1.9vw, 1.6rem);
+  font-size: clamp(0.92rem, 1.1vw, 1.04rem);
+  line-height: 1.25;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.ms-pillar-line em {
+  font-style: normal;
+  font-family: var(--body);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  margin-left: 6px;
+}
+
+.ms-pillar-rule {
+  flex-shrink: 0;
+  width: 1px;
+  align-self: stretch;
+  margin: 2px 0;
+  background: rgba(176, 141, 87, 0.3);
+}
+
+.ms-pillar-press {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.ms-pillar-press strong {
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 1.9vw, 1.6rem);
   font-weight: 300;
   font-style: italic;
   color: var(--gold-deep);
-  line-height: 1.05;
+  line-height: 1;
 }
-
-/* --- gold award tile --- */
-.ms-tile--award {
-  flex-direction: row;
-  align-items: center;
-  gap: 11px;
-  min-width: 186px;
-  background: linear-gradient(160deg, rgba(176, 141, 87, 0.09), rgba(176, 141, 87, 0.02));
-  border-color: rgba(176, 141, 87, 0.34);
-}
-.ms-tile--award:hover { border-color: rgba(176, 141, 87, 0.7); }
-
-.ms-medal { flex-shrink: 0; }
-.ms-award-copy { display: flex; flex-direction: column; gap: 3px; }
-.ms-award-rank {
+.ms-pillar-press span {
   font-size: 0.63rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--medal-gold);
-}
-.ms-award-cat {
-  font-family: var(--display);
-  font-size: 0.95rem;
-  line-height: 1.2;
-  color: var(--ink);
+  color: var(--ink-soft);
+  line-height: 1.4;
 }
 
-@media (max-width: 900px) {
-  .ms-cluster--awards { justify-content: flex-start; }
+@media (max-width: 1100px) {
+  .ms-pillar-line { white-space: normal; }
 }
-@media (max-width: 700px) {
-  .ms-tile { min-width: 138px; min-height: 84px; padding: 11px 14px; }
-  .ms-tile--award { min-width: 172px; }
-  .ms-cluster { gap: 8px; }
+@media (max-width: 980px) {
+  .ms-cluster--stats { flex: 1 1 100%; }
+  .ms-pillar { flex: 1 1 100%; }
+}
+@media (max-width: 620px) {
+  .ms-tile { min-width: 0; padding: 12px 14px; }
+  .ms-pillar { flex-wrap: wrap; gap: 12px; }
+  .ms-pillar-rule { display: none; }
+  .ms-pillar-press { width: 100%; padding-top: 10px; border-top: 1px solid rgba(176, 141, 87, 0.28); }
 }
