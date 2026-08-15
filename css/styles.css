@@ -2936,3 +2936,129 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
     border-top: 1px solid rgba(246, 241, 232, 0.16);
   }
 }
+
+/* =========================================================
+   Milestone banner — scrolling awards + stats
+   Replaces the static 3-column big-stats strip.
+   Same vertical footprint, rounded tiles, seamless loop.
+   ========================================================= */
+.ms-band {
+  padding: 0;
+  background: var(--bg-card);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.ms-viewport {
+  overflow: hidden;
+  padding: clamp(16px, 2vw, 22px) 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+.ms-track {
+  display: flex;
+  width: max-content;
+  animation: ms-scroll 64s linear infinite;
+}
+.ms-band:hover .ms-track { animation-play-state: paused; }
+
+.ms-group {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  padding-right: 14px;
+}
+
+@keyframes ms-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* --- tile --- */
+.ms-tile {
+  flex: 0 0 auto;
+  width: 208px;
+  min-height: 104px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg);
+  text-decoration: none;
+  transition: border-color var(--t-med) var(--ease), transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
+}
+.ms-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -14px rgba(7, 23, 22, 0.28);
+}
+
+.ms-num {
+  font-family: var(--display);
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+.ms-num em { color: var(--gold-deep); font-style: italic; }
+
+.ms-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.ms-note-top {
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 2.1vw, 1.75rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gold-deep);
+  line-height: 1.05;
+}
+
+/* --- award tile --- */
+.ms-tile--award {
+  flex-direction: row;
+  align-items: center;
+  gap: 13px;
+  background: linear-gradient(160deg, rgba(176, 141, 87, 0.09), rgba(176, 141, 87, 0.02));
+  border-color: rgba(176, 141, 87, 0.34);
+}
+.ms-tile--award:hover { border-color: rgba(176, 141, 87, 0.7); }
+.ms-tile--silver {
+  background: linear-gradient(160deg, rgba(142, 150, 148, 0.11), rgba(142, 150, 148, 0.02));
+  border-color: rgba(142, 150, 148, 0.36);
+}
+.ms-tile--silver:hover { border-color: rgba(142, 150, 148, 0.72); }
+
+.ms-medal { flex-shrink: 0; }
+.ms-award-copy { display: flex; flex-direction: column; gap: 4px; }
+.ms-award-rank {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--medal-gold);
+}
+.ms-tile--silver .ms-award-rank { color: var(--medal-silver); }
+.ms-award-cat {
+  font-family: var(--display);
+  font-size: 0.98rem;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+@media (max-width: 700px) {
+  .ms-tile { width: 178px; min-height: 92px; padding: 15px 18px; }
+  .ms-track { animation-duration: 48s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-track { animation: none; }
+  .ms-viewport { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+}
