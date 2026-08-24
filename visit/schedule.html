@@ -273,6 +273,7 @@
       <div>
         <span class="eyebrow reveal">Prefer to send a request?</span>
         <h2 class="reveal" style="margin-bottom: 30px;">Tell us what you'd like to book.</h2>
+        <p class="form-notice reveal">Appointment requests only. We don&rsquo;t accept sales, marketing, or political solicitations through this form.</p>
         <form id="apptForm" class="contact-form reveal" novalidate>
           <input type="hidden" name="form_type" value="Appointment request">
           <input type="text" name="botcheck" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -353,10 +354,13 @@
     var status = form.querySelector('.form-status');
     var btn = form.querySelector('button[type="submit"]');
     var label = btn ? btn.textContent : 'Send';
+    // Spam time-trap: real people take many seconds to fill this in; bots post instantly.
+    var openedAt = Date.now();
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
       var data = Object.fromEntries(new FormData(form).entries());
+      data.elapsed_ms = Date.now() - openedAt;
       btn.disabled = true; btn.textContent = 'Sending…';
       status.textContent = ''; status.className = 'form-status';
       fetch('/api/contact', {

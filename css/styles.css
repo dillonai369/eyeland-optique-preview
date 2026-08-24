@@ -1469,6 +1469,20 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 }
 
 /* ---------- Forms (contact + schedule) ---------- */
+/* Solicitation notice above the enquiry / appointment forms */
+.form-notice {
+  margin: 0 0 18px;
+  padding: 11px 15px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold-deep);
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
