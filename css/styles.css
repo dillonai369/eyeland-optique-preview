@@ -1947,7 +1947,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
     margin-top: 32px;
     aspect-ratio: 2 / 1;
     border-radius: 10px;
-    background-image: url('../images/hero/showcase-mobile.webp');
+    background-image: url('../images/interior/store-frames.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -2313,7 +2313,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   position: relative;
   width: 100%;
   min-height: clamp(420px, 56vw, 620px);
-  background-image: url('../images/hero/services.webp');
+  background-image: none; /* asset removed */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2364,7 +2364,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   position: relative;
   width: 100%;
   min-height: clamp(420px, 56vw, 620px);
-  background-image: url('../images/hero/order.webp');
+  background-image: none; /* asset removed */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

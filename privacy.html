@@ -118,6 +118,33 @@
   </div>
 </section>
 
+<script>
+/* Conversion tracking — GA4 custom events.
+   Mark these as Key Events in GA4 (Admin > Events) to report on them. */
+(function () {
+  function ev(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params || {});
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('tel:') === 0) {
+      ev('phone_call_click', { link_url: href, page_path: location.pathname });
+    } else if (href.indexOf('mailto:') === 0) {
+      ev('email_click', { link_url: href, page_path: location.pathname });
+    } else if (href.indexOf('opticalpos.com') > -1 || href.indexOf('eyecloudpro.com') > -1) {
+      ev('booking_click', { link_url: href, page_path: location.pathname });
+    } else if (href.indexOf('google.com/maps') > -1 || href.indexOf('maps.app.goo.gl') > -1 || href.indexOf('goo.gl/maps') > -1) {
+      ev('directions_click', { link_url: href, page_path: location.pathname });
+    }
+  }, true);
+  window.eyelandTrackFormSuccess = function (formType) {
+    ev('form_submit', { form_type: formType || 'unknown', page_path: location.pathname });
+  };
+})();
+</script>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-bottom" style="border-top: 1px solid rgba(246,241,232,0.18); padding-top: 26px; display: flex; gap: 18px; flex-wrap: wrap; justify-content: space-between;">
