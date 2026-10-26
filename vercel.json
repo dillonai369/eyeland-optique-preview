@@ -1,49 +1,182 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/about-us-2", "destination": "/visit", "permanent": true },
-    { "source": "/collections-2", "destination": "/eyewear", "permanent": true },
-    { "source": "/experts-2", "destination": "/team", "permanent": true },
-    { "source": "/services-2", "destination": "/eye-care", "permanent": true },
-    { "source": "/happenings-2", "destination": "/journal", "permanent": true },
-    { "source": "/covid-19-update", "destination": "/visit", "permanent": true },
-    { "source": "/dr-bari-miller-od", "destination": "/team", "permanent": true },
-    { "source": "/billy-simmons-ldo-aboc", "destination": "/team/billy-simmons", "permanent": true },
-    { "source": "/carrie-roitstein-od", "destination": "/team/carrie-roitstein", "permanent": true },
-    { "source": "/jeanine-lundstrom-aboc", "destination": "/team/jeanine-lundstrom", "permanent": true },
-    { "source": "/rick-spolzino-od", "destination": "/team/rick-spolzino", "permanent": true },
-    { "source": "/chopard", "destination": "/eyewear/chopard", "permanent": true },
-    { "source": "/la-eyeworks", "destination": "/eyewear/la-eyeworks", "permanent": true },
-    { "source": "/lindberg", "destination": "/eyewear/lindberg", "permanent": true },
-    { "source": "/orgreen", "destination": "/eyewear/orgreen", "permanent": true },
-    { "source": "/porsche-design", "destination": "/eyewear/porsche-design", "permanent": true },
-    { "source": "/res-rei", "destination": "/eyewear/res-rei", "permanent": true },
-    { "source": "/schedule", "destination": "/visit/schedule", "permanent": true },
-    { "source": "/eye-care/myopia-control", "destination": "/eye-care/pediatric", "permanent": true },
-    { "source": "/lens-technology/stellest", "destination": "/lens-technology", "permanent": true },
-    { "source": "/lens-technology/enchroma", "destination": "/lens-technology", "permanent": true },
-    { "source": "/lens-technology/avulux", "destination": "/lens-technology", "permanent": true },
-    { "source": "/lens-technology/neurolens", "destination": "/lens-technology", "permanent": true },
-    { "source": "/eyewear/costa", "destination": "/eyewear", "permanent": true },
-    { "source": "/eyewear/tom-davies", "destination": "/eyewear/custom", "permanent": true },
-    { "source": "/eyewear/evolve", "destination": "/eyewear", "permanent": true },
-    { "source": "/journal/myopia-control-for-island-kids", "destination": "/journal", "permanent": true },
-    { "source": "/journal/maui-jim-vs-costa-vs-vuarnet", "destination": "/journal/maui-jim-vs-vuarnet", "permanent": true }
+    {
+      "source": "/about-us-2",
+      "destination": "/visit",
+      "permanent": true
+    },
+    {
+      "source": "/collections-2",
+      "destination": "/eyewear",
+      "permanent": true
+    },
+    {
+      "source": "/experts-2",
+      "destination": "/team",
+      "permanent": true
+    },
+    {
+      "source": "/services-2",
+      "destination": "/eye-care",
+      "permanent": true
+    },
+    {
+      "source": "/happenings-2",
+      "destination": "/journal",
+      "permanent": true
+    },
+    {
+      "source": "/covid-19-update",
+      "destination": "/visit",
+      "permanent": true
+    },
+    {
+      "source": "/dr-bari-miller-od",
+      "destination": "/team",
+      "permanent": true
+    },
+    {
+      "source": "/billy-simmons-ldo-aboc",
+      "destination": "/team/billy-simmons",
+      "permanent": true
+    },
+    {
+      "source": "/carrie-roitstein-od",
+      "destination": "/team/carrie-roitstein",
+      "permanent": true
+    },
+    {
+      "source": "/jeanine-lundstrom-aboc",
+      "destination": "/team/jeanine-lundstrom",
+      "permanent": true
+    },
+    {
+      "source": "/rick-spolzino-od",
+      "destination": "/team/rick-spolzino",
+      "permanent": true
+    },
+    {
+      "source": "/chopard",
+      "destination": "/eyewear/chopard",
+      "permanent": true
+    },
+    {
+      "source": "/la-eyeworks",
+      "destination": "/eyewear/la-eyeworks",
+      "permanent": true
+    },
+    {
+      "source": "/lindberg",
+      "destination": "/eyewear/lindberg",
+      "permanent": true
+    },
+    {
+      "source": "/orgreen",
+      "destination": "/eyewear/orgreen",
+      "permanent": true
+    },
+    {
+      "source": "/porsche-design",
+      "destination": "/eyewear/porsche-design",
+      "permanent": true
+    },
+    {
+      "source": "/res-rei",
+      "destination": "/eyewear/res-rei",
+      "permanent": true
+    },
+    {
+      "source": "/schedule",
+      "destination": "/visit/schedule",
+      "permanent": true
+    },
+    {
+      "source": "/eye-care/myopia-control",
+      "destination": "/eye-care/pediatric",
+      "permanent": true
+    },
+    {
+      "source": "/lens-technology/stellest",
+      "destination": "/lens-technology",
+      "permanent": true
+    },
+    {
+      "source": "/lens-technology/enchroma",
+      "destination": "/lens-technology",
+      "permanent": true
+    },
+    {
+      "source": "/lens-technology/avulux",
+      "destination": "/lens-technology",
+      "permanent": true
+    },
+    {
+      "source": "/lens-technology/neurolens",
+      "destination": "/lens-technology",
+      "permanent": true
+    },
+    {
+      "source": "/eyewear/costa",
+      "destination": "/eyewear",
+      "permanent": true
+    },
+    {
+      "source": "/eyewear/tom-davies",
+      "destination": "/eyewear/custom",
+      "permanent": true
+    },
+    {
+      "source": "/eyewear/evolve",
+      "destination": "/eyewear",
+      "permanent": true
+    },
+    {
+      "source": "/journal/myopia-control-for-island-kids",
+      "destination": "/journal",
+      "permanent": true
+    },
+    {
+      "source": "/journal/maui-jim-vs-costa-vs-vuarnet",
+      "destination": "/journal/maui-jim-vs-vuarnet",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)\\.(png|webp|jpg|jpeg|gif|svg|mp4|webm|woff2)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: blob: https:; font-src 'self' data: https:; connect-src 'self' https: wss:; media-src 'self' data: blob: https:; frame-src 'self' https:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https:; frame-ancestors 'self'; upgrade-insecure-requests"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+        }
       ]
     }
   ]
